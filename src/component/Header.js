@@ -1,11 +1,17 @@
-import React, { Component } from "react";
+import React, { Children, Component } from "react";
 import Logo from "../assets/logo.png";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = "";
+  }
+
   render() {
     return (
-      <header>
+      <header {...this.props}>
         <img src={Logo}></img>
+        {this.props.children}
       </header>
     );
   }

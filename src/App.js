@@ -17,10 +17,11 @@ function App() {
         content="Experience delicious, authentic cuisine at our restaurant. Our menu features a variety of dishes made with fresh, locally sourced ingredients. Join us for lunch, dinner or weekend brunch. Reservations recommended."
       />
       <meta name="og:image" content="lemon logo" />
-      NEW REACT APP
-      <Header></Header>
-      <Nav></Nav>
-      <Main></Main>
+      <Header className="Header">
+        <Nav className="Nav"></Nav>
+      </Header>
+
+      <Main className="Main"></Main>
       <Footer></Footer>
     </>
   );
