@@ -39,24 +39,83 @@
 
 .Header {
   display: grid;
-  grid-template-columns: 100px auto;
-  padding-left: 20px;
-  padding-top: 20px;
+  grid-template-columns: auto 1fr;
+  /* grid-template-rows: 1fr; */
+  padding: 20px;
   font-family: "Karla", sans-serif;
-  font-size: 20px;
+  /* font-size: 0.3rem; */
+  justify-items: center;
+  justify-content: right;
 }
 .Main {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 2fr 1fr;
-  align-items: center;
-  justify-content: center;
 }
 
 .Nav {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
+  grid-template-columns: repeat(7, 100px);
+  grid-column-gap: 10px;
+  justify-items: center;
+  justify-content: right;
+  grid-auto-flow: row;
+}
+
+.img-wrap {
+  width: auto;
+  height: 100%;
+}
+
+.img-wrap-hero {
+  display: block;
+  width: auto;
+  height: 100%;
+  border-radius: 16px;
+  border-color: aliceblue;
+  border-bottom: 5px;
+  border-top: 5px;
+}
+
+.CallToAction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+  background-color: #495e57;
+  padding: 40px;
   justify-items: center;
   justify-content: center;
-  grid-auto-flow: row;
+  /* font-size: 0.5rem; */
+  /* grid-auto-flow: column; */
+}
+
+.Header-text {
+  font-size: 40px;
+  font-family: "Markazi Text", serif;
+  color: #f4ce14;
+}
+.Header-text-sub1 {
+  font-size: 30px;
+  font-weight: normal;
+  font-family: "Markazi Text", serif;
+  color: #ffffff;
+}
+.hero-description {
+  font-size: 18px;
+  font-weight: lighter;
+  font-family: "Karla", serif;
+  color: #ffffff;
+}
+.Button {
+  font-size: 20px;
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  background-color: #f4ce14;
+  padding: 3%;
+  border-radius: 16px;
+}
+
+.Specials {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #ffffff;
+  justify-content: center;
 }

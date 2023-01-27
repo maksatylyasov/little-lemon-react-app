@@ -10,7 +10,7 @@ class Header extends Component {
   render() {
     return (
       <header {...this.props}>
-        <img src={Logo}></img>
+        <img className="img-wrap" src={Logo}></img>
         {this.props.children}
       </header>
     );

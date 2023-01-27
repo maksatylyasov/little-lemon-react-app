@@ -1,13 +1,21 @@
 import React, { Component } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Homepage } from "./Homepage";
+import { BookingPage } from "./BookingPage";
 
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = "";
-  }
+import CallToAction from "./CallToAction";
+import Specials from "./Specials";
+import CustomerSay from "./CustomersSay";
+import Chicago from "./Chicago";
 
-  render() {
-    return <main {...this.props}>Main</main>;
-  }
-}
+const Main = (props) => {
+  return (
+    <main>
+      <CallToAction></CallToAction>
+      <Specials></Specials>
+      <CustomerSay></CustomerSay>
+      <Chicago></Chicago>
+    </main>
+  );
+};
 export default Main;
