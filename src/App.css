@@ -231,3 +231,9 @@
   font-family: "Karla", serif;
   color: #ffffff;
 }
+.booking-form {
+  display: grid;
+  max-width: 200px;
+  gap: 20px;
+  padding: 30px;
+}

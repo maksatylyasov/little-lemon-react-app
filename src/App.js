@@ -17,6 +17,8 @@ import Specials from "./component/Specials";
 import CustomerSay from "./component/CustomersSay";
 import Chicago from "./component/Chicago";
 
+import * as ReactDOM from "react-dom";
+
 function App() {
   return (
     <>
@@ -34,10 +36,10 @@ function App() {
         <Nav className="Nav"></Nav>
       </Header>
       <Main className="Main"></Main>
-
       <Footer></Footer> */}
-
       <Homepage />
+
+      {/* <BookingPage></BookingPage> */}
     </>
   );
 }
