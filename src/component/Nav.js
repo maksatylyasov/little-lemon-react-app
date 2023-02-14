@@ -11,6 +11,7 @@ import Home from "./Home";
 import BookingPage from "./BookingPage";
 import About from "./About";
 import Footer from "./Footer";
+import ConfirmedBooking from "./ConfirmedBooking";
 import App from "../App";
 import * as ReactDOM from "react-dom";
 
@@ -38,6 +39,7 @@ class Nav extends Component {
             <Route path="/home" element={<Home />} />
             <Route exact path="/booking" element={<BookingPage />} />
             <Route exact path="/about" element={<About></About>} />
+            <Route path="/submitted" element={<ConfirmedBooking />} />
           </Routes>
 
           <ul {...this.props}>

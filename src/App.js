@@ -32,6 +32,7 @@ function App() {
         content="Experience delicious, authentic cuisine at our restaurant. Our menu features a variety of dishes made with fresh, locally sourced ingredients. Join us for lunch, dinner or weekend brunch. Reservations recommended."
       />
       <meta name="og:image" content="lemon logo" />
+      <script src="https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js"></script>
       {/* <Header className="Header">
         <Nav className="Nav"></Nav>
       </Header>
