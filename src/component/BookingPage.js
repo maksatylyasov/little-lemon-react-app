@@ -1,5 +1,6 @@
 import React, { Component, useReducer } from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import Nav from "./Nav";
 import BookingForm from "./BookingForm";
 import * as ReactDOM from "react-dom";
@@ -39,15 +40,18 @@ const BookingPage = () => {
   //   <BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />,
   //   document.getElementById("root")
   // );
-  ReactDOM.render(<BookingForm />, document.getElementById("root"));
   return (
-    <div>
+    <>
+      <Header className="Header">
+        <Nav className="Nav"></Nav>
+      </Header>
       {/* <Header className="Header">
         <Nav className="Nav"></Nav>
       </Header> */}
 
-      {/* <BookingForm></BookingForm> */}
-    </div>
+      <BookingForm></BookingForm>
+      <Footer />
+    </>
   );
 };
 

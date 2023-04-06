@@ -25,36 +25,28 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <div>
-          {/* <BrowserRouter>
-            <Routes>
-               <Route path="/" Component={<Homepage />}></Route>
-              <Route path="/booking" Component={<BookingPage />}></Route>
-            </Routes>
-          </BrowserRouter> */}
-        </div>
-        <Router>
-          <Routes>
-            {/* <Route path="/" element={<App></App>} /> */}
-            <Route path="/home" element={<Home />} />
-            <Route exact path="/booking" element={<BookingPage />} />
-            <Route exact path="/about" element={<About></About>} />
-            <Route path="/submitted" element={<ConfirmedBooking />} />
-          </Routes>
+        {/* <Router> */}
+        {/* <Routes> */}
+        {/* <Route path="/" element={<App></App>} /> */}
+        {/* <Route path="/home" element={<Home />} /> */}
+        {/* <Route exact path="/booking" element={<BookingPage />} /> */}
+        {/* <Route exact path="/about" element={<About></About>} /> */}
+        {/* <Route path="/submitted" element={<ConfirmedBooking />} /> */}
+        {/* </Routes> */}
 
-          <ul {...this.props}>
-            {/* <a href="/">Home</a> */}
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            {/* <a href="">About</a> */}
-            <a href="">Menu</a>
+        <ul {...this.props}>
+          {/* <a href="/">Home</a> */}
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          {/* <a href="">About</a> */}
+          <a href="">Menu</a>
 
-            {/* <a href="">Reservations</a> */}
-            <Link to="/booking">Reservations</Link>
-            <a href="">Order Online</a>
-            {/* <a href="">About</a> */}
-          </ul>
-        </Router>
+          {/* <a href="">Reservations</a> */}
+          <Link to="/reservation">Reservations</Link>
+          <a href="">Order Online</a>
+          {/* <a href="">About</a> */}
+        </ul>
+        {/* </Router> */}
       </nav>
     );
   }

@@ -119,7 +119,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div>
+    <div className="reservations">
       {/* {props.availableTimes.map((value, i) => (
         <p>{value}</p>
       ))} */}

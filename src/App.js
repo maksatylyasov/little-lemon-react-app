@@ -11,6 +11,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Homepage from "./component/Homepage";
+import AboutPage from "./component/AboutPage";
 import BookingPage from "./component/BookingPage";
 import CallToAction from "./component/CallToAction";
 import Specials from "./component/Specials";
@@ -38,7 +39,31 @@ function App() {
       </Header>
       <Main className="Main"></Main>
       <Footer></Footer> */}
-      <Homepage />
+      {/* <Homepage /> */}
+      <Routes>
+        <Route path="/" element={<Homepage header="Home" />}>
+          {/* <Route path="contactme" element={<ContactMe />} /> */}
+        </Route>
+        <Route path="/about" element={<AboutPage />}>
+          {/* <Route path="contactme" element={<ContactMe />} /> */}
+        </Route>
+        <Route path="/reservation" element={<BookingPage />}>
+          {/* <Route path="contactme" element={<ContactMe />} /> */}
+        </Route>
+        {/* <Route
+          path="/contactme"
+          element={<ContactMePage header="ContactMePage" />}
+        />
+        <Route
+          path="/certificates"
+          element={<CertificatePage header="CertificatePage" />}
+        />
+        <Route path="/about" element={<AboutPage header="AboutPage" />} />
+        <Route
+          path="/portfolio"
+          element={<PortfolioPage header="PortfolioPage" />}
+        /> */}
+      </Routes>
 
       {/* <BookingPage></BookingPage> */}
     </>

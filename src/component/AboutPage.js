@@ -1,18 +1,18 @@
 import React from "react";
 import Header from "./Header";
-import Nav from "./Nav";
-import Main from "./Main";
 import Footer from "./Footer";
+import Nav from "./Nav";
 
-const Homepage = () => {
+const AboutPage = () => {
   return (
-    <div>
+    <>
       <Header className="Header">
         <Nav className="Nav"></Nav>
       </Header>
-      <Main className="Main"></Main>
-      <Footer></Footer>
-    </div>
+      About section
+      <Footer />
+    </>
   );
 };
-export default Homepage;
+
+export default AboutPage;
