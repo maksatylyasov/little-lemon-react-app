@@ -217,9 +217,10 @@ const BookingForm = () => {
           <option>Anniversary</option>
         </select>
         <input
+          className="form-button"
           aria-label="button"
           type="submit"
-          value="Make Your reservation"
+          value="Make Your Reservation"
           disabled={form.disable}
         />
       </form>

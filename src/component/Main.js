@@ -13,7 +13,7 @@ const Main = (props) => {
     <main>
       <CallToAction></CallToAction>
       <Specials></Specials>
-      {/* <CustomerSay></CustomerSay> */}
+      <CustomerSay></CustomerSay>
       {/* <Chicago></Chicago> */}
     </main>
   );
