@@ -8,21 +8,21 @@ import React, {
 import Footer from "./Footer";
 import Main from "./Main";
 
-import { ErrorMessage, useFormik } from "formik";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-  Select,
-  Spinner,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
-import * as Yup from "yup";
+// import { ErrorMessage, useFormik } from "formik";
+// import {
+//   Box,
+//   Button,
+//   FormControl,
+//   FormErrorMessage,
+//   FormLabel,
+//   Heading,
+//   Input,
+//   Select,
+//   Spinner,
+//   Textarea,
+//   VStack,
+// } from "@chakra-ui/react";
+// import * as Yup from "yup";
 import { seededRandom, fetchAPI, submitAPI } from "./RestAPI";
 import { useNavigate } from "react-router-dom";
 import * as ReactDOM from "react-dom";
