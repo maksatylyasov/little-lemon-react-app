@@ -220,6 +220,7 @@ a:active {
   display: flex;
   justify-content: center;
   padding: 10vw;
+  animation: reservation-form 1s ease-out;
 }
 .booking-form {
   display: grid;
@@ -229,6 +230,28 @@ a:active {
   background-color: #fff3b5;
   box-shadow: 2px 2px 10px 1px #495e57;
   z-index: 1;
+}
+.booking-form input {
+  height: 3vh;
+  box-shadow: 0.05rem 0.05rem 0.2rem #967f0d inset;
+  border: none;
+}
+.booking-form label {
+  text-align: center;
+  color: #495e57;
+  font-weight: bold;
+}
+
+/* The animation code */
+@keyframes reservation-form {
+  from {
+    opacity: 0%;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
 }
 
 @media screen {
