@@ -17,10 +17,18 @@ const CallToAction = (props) => {
           with a selection of wine and beer to complement your meal. Come dine
           with us and experience the true taste of culinary excellence.
         </p>
+        <div>
+          <img className="img-wrap-hero" src={HeroImage} alt="hero images" />
+        </div>
         <button className="Button">Reserve a Table</button>
       </div>
       <div>
-        <img className="img-wrap-hero" src={HeroImage} alt="hero images" />
+        <img
+          id="image-for-hq"
+          className="img-wrap-hero"
+          src={HeroImage}
+          alt="hero images"
+        />
       </div>
     </div>
   );
