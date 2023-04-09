@@ -9,10 +9,7 @@ const Footer = () => {
       </div>
       <div>
         <div className="footer-nav">
-          About Us
-          <div>
-            <br />
-          </div>
+          <h2>About Us</h2>
           <a className="hero-description" href="">
             Home
           </a>
@@ -35,10 +32,7 @@ const Footer = () => {
       </div>
       <div>
         <div className="footer-nav">
-          Contact
-          <div>
-            <br />
-          </div>
+          <h2>Contact</h2>
           <a className="hero-description" href="">
             Address
           </a>
@@ -52,10 +46,7 @@ const Footer = () => {
       </div>
       <div>
         <div className="footer-nav">
-          Social Media
-          <div>
-            <br />
-          </div>
+          <h2>Social Media</h2>
           <a className="hero-description" href="">
             Address
           </a>
