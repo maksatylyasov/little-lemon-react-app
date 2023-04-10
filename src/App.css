@@ -333,6 +333,7 @@ button:active {
   left: 2.5vw;
 
   width: 15vw;
+  height: auto;
 }
 .review-card {
   display: grid;
@@ -348,6 +349,35 @@ button:active {
 .quote-strong {
   font-size: 2rem;
   font-family: cursive;
+}
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 80vw;
+  justify-content: center;
+  background-color: #495e57;
+  padding: 3vw;
+  color: white;
+}
+
+#subscription-form {
+  display: grid;
+  grid-template-columns: 5vw 30vw 10vw;
+  justify-content: center;
+  column-gap: 1vw;
+}
+.newsletter img {
+  display: block;
+  width: 5vw;
+}
+.Button2 {
+  display: block;
+  font-size: 1rem;
+  font-family: "Karla", sans-serif;
+  font-weight: bold;
+  background-color: #f4ce14;
+  border-radius: 16px;
+  padding-right: 5vw;
 }
 
 @media only screen and (max-width: 700px) {
