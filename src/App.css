@@ -362,7 +362,7 @@ button:active {
 
 #subscription-form {
   display: grid;
-  grid-template-columns: 5vw 30vw 10vw;
+  grid-template-columns: 5vw 30vw auto;
   justify-content: center;
   column-gap: 1vw;
 }
@@ -377,7 +377,7 @@ button:active {
   font-weight: bold;
   background-color: #f4ce14;
   border-radius: 16px;
-  padding-right: 5vw;
+  /* padding-right: 5vw; */
 }
 
 @media only screen and (max-width: 700px) {
