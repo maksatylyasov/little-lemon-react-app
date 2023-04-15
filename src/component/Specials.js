@@ -3,6 +3,7 @@ import CardImage1 from "../assets/greek-salad.jpg";
 import CardImage2 from "../assets/lemon-dessert.jpg";
 import CardImage3 from "../assets/bruschetta.jpg";
 import FastDeliveryImage from "../assets/fast-delivery.jpg";
+import { motion } from "framer-motion";
 
 const Specials = () => {
   return (
@@ -12,7 +13,7 @@ const Specials = () => {
         <button className="Button">Online Menu</button>
       </div>
       <div className="card-container">
-        <div className="card-specials">
+        <motion.div whileHover={{ scale: 1.1 }} className="card-specials">
           <div className="img-wrap-card">
             <img src={CardImage1} alt="cardimage1" />
           </div>
@@ -29,7 +30,7 @@ const Specials = () => {
           <div>
             {/* <img scr={FastDeliveryImage} alt="fast delivery icon" /> */}
           </div>
-        </div>
+        </motion.div>
         <div className="card-specials">
           <div className="img-wrap-card">
             <img src={CardImage2} alt="cardimage1" />

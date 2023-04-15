@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import image1 from "../assets/person1-review.png";
 import image2 from "../assets/person2-review.png";
 import image3 from "../assets/person3-review.png";
+import { motion } from "framer-motion";
 
 const customers = [
   {
@@ -47,7 +48,37 @@ const CustomerSay = () => {
       </article>
     );
   });
+  const container = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1.2,
+      transition: {
+        duration: 1,
+        delayChildren: 5,
+        staggerChildren: 5,
+      },
+    },
+  };
 
-  return <section className="customer-say">{customerRating}</section>;
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
+  return (
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="visible"
+      whileInView={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+      className="customer-say"
+    >
+      {customerRating}
+    </motion.section>
+  );
 };
 export default CustomerSay;
