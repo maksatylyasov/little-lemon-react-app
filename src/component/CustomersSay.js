@@ -51,7 +51,7 @@ const CustomerSay = () => {
   const container = {
     hidden: { opacity: 0, scale: 0 },
     visible: {
-      opacity: 1,
+      opacity: 0,
       scale: 1.2,
       transition: {
         duration: 1,

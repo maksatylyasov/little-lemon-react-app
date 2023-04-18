@@ -12,6 +12,7 @@ const Header = (props) => {
   const handleHamburgerClick = () => {
     setHamburger(!hamburger);
   };
+
   return (
     <>
       <div className={showHamburger}>
