@@ -39,8 +39,8 @@ class Nav extends Component {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           {/* <a href="">About</a> */}
-          <a href="">Menu</a>
-
+          {/* <a href="">Menu</a> */}
+          <Link to="/menu">Menu</Link>
           {/* <a href="">Reservations</a> */}
           <Link to="/reservation">Reservations</Link>
           <a href="">Order Online</a>

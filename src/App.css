@@ -1,3 +1,12 @@
+/* main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+} */
+
 .Header {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -214,7 +223,7 @@ button:active {
   grid-template-rows: 200px;
   grid-column-gap: 50px;
   /* background-color: #495e57; */
-  padding: 100px;
+  padding: 10vh;
 }
 
 .img-wrap-footer {
@@ -236,6 +245,15 @@ button:active {
   justify-content: center;
   padding: 10vw;
   animation: intro-elements 1s ease-out;
+}
+.reservation-page {
+  background-image: url("./assets/lemon-cheesecake-table-booking-page.jpg");
+  height: 100vh;
+  width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 .booking-form {
   display: grid;
@@ -378,6 +396,84 @@ button:active {
   background-color: #f4ce14;
   border-radius: 16px;
   /* padding-right: 5vw; */
+}
+
+.highlight-product {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2vw;
+  /* margin: 10vw; */
+  background-color: #495e57;
+  padding: 5vw;
+  color: white;
+}
+.highlight-product img {
+  display: block;
+  width: 50vw;
+  height: auto;
+  border-radius: 3vh;
+}
+.highlight-product h1 {
+  color: #f4ce14;
+  font-size: 4vh;
+}
+.highlight-product .left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured {
+  display: block;
+  background-color: #f4fffb;
+  padding: 2vh;
+  /* position: relative; */
+  /* padding-bottom: 10vh; */
+}
+.featured-items {
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw 20vw;
+  grid-template-rows: auto;
+  margin: 2vh;
+  column-gap: 2vw;
+  justify-content: center;
+  align-items: baseline;
+
+  /* position: relative; */
+  /* background-color: #d9f0e7; */
+}
+.featured-items .item {
+  display: block;
+  /* background-color: #967f0d; */
+  /* flex-direction: column; */
+}
+.featured-items img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1vh;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+
+  /* border-radius: 3vh; */
+}
+.featured-items h2 {
+  font-weight: lighter;
+  /* font-size: 1.5rem; */
+}
+.featured-items h3 {
+  font-weight: lighter;
+  /* font-size: 1rem; */
+  text-align: start;
+}
+
+.menus-section {
+  display: flex;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 700px) {

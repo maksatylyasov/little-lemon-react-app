@@ -119,112 +119,114 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="reservations">
-      {/* {props.availableTimes.map((value, i) => (
+    <section className="reservation-page">
+      <div className="reservations">
+        {/* {props.availableTimes.map((value, i) => (
         <p>{value}</p>
       ))} */}
-      <form
-        id="form-id"
-        className="booking-form"
-        onSubmit={handleSubmit}
-        value={form}
-        aria-label="form"
-      >
-        <h1>Book Now</h1>
-        <label htmlfor="firstName">Firstname</label>
-        <input
-          aria-label="firstName"
-          type="text"
-          name="firstName"
-          id="firstName"
-          value={form.firstName}
-          minLength={2}
-          maxLength={25}
-          placeholder="enter firstname"
-          required
-          onChange={handleInputChange}
-        />
-        <label htmlfor="lastName">Lastname</label>
-        <input
-          aria-label="lastName"
-          type="text"
-          name="lastName"
-          value={form.lastName}
-          minLength={2}
-          maxLength={25}
-          required
-          placeholder="enter lastname"
-          onChange={handleInputChange}
-        />
-        <label htmlfor="email">Email</label>
-        <input
-          aria-label="email"
-          type="email"
-          name="email"
-          value={form.email}
-          required
-          placeholder="email"
-          onChange={handleInputChange}
-        />
-        <label htmlfor="res-date">Choose date</label>
-        <input
-          aria-label="date"
-          type="date"
-          name="resDate"
-          value={form.resDate}
-          required
-          onChange={handleInputChange}
-        />
-        <label htmlfor="res-time">Choose time</label>
-        <select
-          aria-label="time"
-          name="resTime "
-          value={form.resTime}
-          required
-          onChange={handleInputChangeResTime}
+        <form
+          id="form-id"
+          className="booking-form"
+          onSubmit={handleSubmit}
+          value={form}
+          aria-label="form"
         >
-          {availableTimes.map((value) => (
-            <option key={value}>{value}</option>
-          ))}
+          <h1>Book Now</h1>
+          <label htmlfor="firstName">Firstname</label>
+          <input
+            aria-label="firstName"
+            type="text"
+            name="firstName"
+            id="firstName"
+            value={form.firstName}
+            minLength={2}
+            maxLength={25}
+            placeholder="enter firstname"
+            required
+            onChange={handleInputChange}
+          />
+          <label htmlfor="lastName">Lastname</label>
+          <input
+            aria-label="lastName"
+            type="text"
+            name="lastName"
+            value={form.lastName}
+            minLength={2}
+            maxLength={25}
+            required
+            placeholder="enter lastname"
+            onChange={handleInputChange}
+          />
+          <label htmlfor="email">Email</label>
+          <input
+            aria-label="email"
+            type="email"
+            name="email"
+            value={form.email}
+            required
+            placeholder="email"
+            onChange={handleInputChange}
+          />
+          <label htmlfor="res-date">Choose date</label>
+          <input
+            aria-label="date"
+            type="date"
+            name="resDate"
+            value={form.resDate}
+            required
+            onChange={handleInputChange}
+          />
+          <label htmlfor="res-time">Choose time</label>
+          <select
+            aria-label="time"
+            name="resTime "
+            value={form.resTime}
+            required
+            onChange={handleInputChangeResTime}
+          >
+            {availableTimes.map((value) => (
+              <option key={value}>{value}</option>
+            ))}
 
-          {/* <option value="17:00">17:00</option>
+            {/* <option value="17:00">17:00</option>
           <option value="18:00">18:00</option>
           <option value="19:00">19:00</option>
           <option value="20:00">20:00</option>
           <option value="21:00">21:00</option>
           <option value="22:00">22:00</option> */}
-        </select>
-        <label htmlfor="guests">Number of guests</label>
-        <input
-          aria-label="guestNumber"
-          type="number"
-          placeholder="1"
-          min="1"
-          max="10"
-          name="number"
-          value={form.number}
-          required
-          onChange={handleInputChange}
-        />
-        <label htmlfor="occasion">Occasion</label>
-        <select
-          aria-label="occasion"
-          name="occasion"
-          value={form.occasion}
-          onChange={handleInputChange}
-        >
-          <option>Birthday</option>
-          <option>Anniversary</option>
-        </select>
-        <input
-          className="form-button"
-          aria-label="button"
-          type="submit"
-          value="Make Your Reservation"
-          disabled={form.disable}
-        />
-      </form>
-    </div>
+          </select>
+          <label htmlfor="guests">Number of guests</label>
+          <input
+            aria-label="guestNumber"
+            type="number"
+            placeholder="1"
+            min="1"
+            max="10"
+            name="number"
+            value={form.number}
+            required
+            onChange={handleInputChange}
+          />
+          <label htmlfor="occasion">Occasion</label>
+          <select
+            aria-label="occasion"
+            name="occasion"
+            value={form.occasion}
+            onChange={handleInputChange}
+          >
+            <option>Birthday</option>
+            <option>Anniversary</option>
+          </select>
+          <input
+            className="form-button"
+            aria-label="button"
+            type="submit"
+            value="Make Your Reservation"
+            disabled={form.disable}
+          />
+        </form>
+      </div>
+    </section>
   );
 };
 export default BookingForm;
