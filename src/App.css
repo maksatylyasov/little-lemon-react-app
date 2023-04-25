@@ -471,9 +471,93 @@ button:active {
   text-align: start;
 }
 
-.menus-section {
+.menu-section {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  column-gap: 1vh;
+  row-gap: 1vw;
+  /* position: relative; */
+  margin: 1vh;
+  flex-wrap: wrap;
+}
+
+.menu-section .product {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #967f0d; */
+  column-gap: 1vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.menu-section img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  border-radius: 1vh;
+}
+.menu-section img:hover {
+  /* opacity: 50%; */
+}
+.menu-section .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #f4ce14;
+  font-weight: bold;
+  text-shadow: #495e57 10px 0 20px;
+  /* background-color: #495e57; */
+}
+.menu-section .title Button {
+  transform: scale(0.8);
+}
+
+.order-now-overlay {
+  display: none;
+  flex-direction: column;
+  background-color: #495e57;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  margin-left: 20%;
+  margin-right: 20%;
+  row-gap: 5vh;
+  border-radius: 20px;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* transform: scale(1.5); */
+}
+.order-now-overlay form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  color: #f4ce14;
+  /* padding: 2vh; */
+  font-size: 2rem;
+  align-items: center;
+}
+.order-now-overlay input::placeholder {
+  font-size: 1.5rem;
+}
+.order-now-overlay img {
+  padding-top: 2vh;
+  display: block;
+  width: 40%;
+  height: auto;
+}
+.order-now-overlay input {
+  width: 40vw;
+  height: 5vh;
+}
+
+#menu-page {
+  position: relative;
 }
 
 @media only screen and (max-width: 700px) {

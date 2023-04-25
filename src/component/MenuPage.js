@@ -13,6 +13,7 @@ import image6 from "../assets/Peanut-Butter-Cupcake.jpg";
 
 import FeaturedItems from "./FeaturedItems";
 import MenusSection from "./MenusSection";
+import OrderNowOverlay from "./OrderNowOverlay";
 
 const products = [
   {
@@ -71,10 +72,11 @@ const MenuPage = () => {
       <Header className="Header">
         <Nav className="Nav"></Nav>
       </Header>
-      <HighLightProduct>{products[0]}</HighLightProduct>
-      <FeaturedItems>{products}</FeaturedItems>
-      <MenusSection></MenusSection>
-
+      <section id="menu-page">
+        <HighLightProduct>{products[0]}</HighLightProduct>
+        <FeaturedItems>{products}</FeaturedItems>
+        <MenusSection>{products}</MenusSection>
+      </section>
       <Footer />
     </>
   );
