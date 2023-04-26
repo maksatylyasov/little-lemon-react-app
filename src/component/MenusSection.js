@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import OrderNowOverlay from "./OrderNowOverlay";
 
 const MenusSection = (props) => {
+  const [overlay, setOverlay] = useState(false);
+  // const overlayTag = <OrderNowOverlay popup={overlay} id="overlay" />;
   const handleClick = () => {
-    // document.getElementById("menu").style.display = "none";
-    document.getElementById("overlay").style.display = "flex";
+    setOverlay(!overlay);
+    // alert("ERROR");
   };
   return (
     <>
@@ -13,9 +15,9 @@ const MenusSection = (props) => {
         Little Lemon Menu
       </h1>
 
-      <section id="menu" onClick={handleClick} className="menu-section">
+      <section id="menu" className="menu-section">
         {props.children.map((element) => (
-          <article className="product">
+          <article className="product" onClick={handleClick}>
             <img src={element.image} alt={element.title}></img>
             <div className="title">
               <h1>{element.title}</h1>
@@ -24,7 +26,7 @@ const MenusSection = (props) => {
           </article>
         ))}
       </section>
-      {/* <OrderNowOverlay id="overlay" /> */}
+      <OrderNowOverlay setOverlay={setOverlay} overlay={overlay} id="overlay" />
     </>
   );
 };

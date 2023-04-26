@@ -492,11 +492,19 @@ button:active {
   padding: 0;
   position: relative;
 }
+
+.menu-section .product:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
 .menu-section img {
   display: inline-block;
   width: 100%;
   height: auto;
   border-radius: 1vh;
+}
+.menu-section img:hover {
+  /* transform: scale(1.1); */
 }
 .menu-section img:hover {
   /* opacity: 50%; */
@@ -517,20 +525,17 @@ button:active {
 }
 
 .order-now-overlay {
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: #495e57;
   justify-content: center;
   align-items: center;
   padding: 1vh;
-  margin-left: 20%;
-  margin-right: 20%;
+  /* margin-left: 20%; */
+  /* margin-right: 20%; */
   row-gap: 5vh;
   border-radius: 20px;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
+
   /* transform: scale(1.5); */
 }
 .order-now-overlay form {
@@ -554,6 +559,66 @@ button:active {
 .order-now-overlay input {
   width: 40vw;
   height: 5vh;
+  font-size: 2rem;
+}
+
+/*popup component css*/
+.popup-content {
+  margin: auto;
+  /* background: rgb(255, 255, 255); */
+  width: 50%;
+  /* padding: 5px; */
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role="tooltip"].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup="tooltip"].popup-overlay {
+  background: transparent;
+}
+.modal {
+  font-size: 12px;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}
+.popup-content {
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 #menu-page {
