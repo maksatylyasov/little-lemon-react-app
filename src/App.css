@@ -7,6 +7,9 @@
   vertical-align: baseline;
 } */
 
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 .Header {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -119,6 +122,10 @@ button:active {
   height: 4rem; */
   margin: auto;
 }
+.Button:active {
+  transform: scale(0.9);
+  transition-duration: 0.5s;
+}
 
 .Specials {
   display: grid;
@@ -174,14 +181,21 @@ button:active {
   justify-content: center;
   align-items: center;
 }
+.card-container img {
+  width: 100%;
+}
 .card-specials {
   display: grid;
   grid-template-columns: 30vw;
+  grid-template-rows: auto;
 
   justify-items: center;
   justify-content: center;
   background-color: #edefee;
 }
+/* .card-specials img {
+  width: 50%;
+} */
 
 .img-wrap-card {
   border-radius: 16px;
@@ -193,7 +207,7 @@ button:active {
   display: block;
   /* justify-content: center; */
   width: auto;
-  height: 70%;
+  height: 50%;
   align-items: center;
 }
 
@@ -337,20 +351,25 @@ button:active {
 
 .customer-say {
   display: flex;
+  overflow-x: visible;
+  /* overflow-wrap: normal; */
+
+  /* width: 100vw; */
+  /* height: 100vh; */
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   column-gap: 1vw;
   color: #495e57;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   margin-top: 10vh;
 }
 .customer-say img {
   position: relative;
-  top: -5vh;
-  left: 2.5vw;
+  top: -30%;
+  left: 25%;
 
-  width: 15vw;
+  width: 50%;
   height: auto;
 }
 .review-card {
