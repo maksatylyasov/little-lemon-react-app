@@ -43,7 +43,7 @@ class Nav extends Component {
           <Link to="/menu">Menu</Link>
           {/* <a href="">Reservations</a> */}
           <Link to="/reservation">Reservations</Link>
-          <a href="">Order Online</a>
+          <Link to="/order-online">Order Online</Link>
           {/* <a href="">About</a> */}
         </ul>
         {/* </Router> */}

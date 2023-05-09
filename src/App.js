@@ -20,6 +20,7 @@ import Chicago from "./component/Chicago";
 
 import * as ReactDOM from "react-dom";
 import MenuPage from "./component/MenuPage";
+import ProductLandingPage from "./component/ProductLandingPage";
 
 function App() {
   return (
@@ -52,6 +53,12 @@ function App() {
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
         <Route path="/menu" element={<MenuPage />}>
+          {/* <Route path="contactme" element={<ContactMe />} /> */}
+        </Route>
+        <Route path="/order-online" element={<ProductLandingPage />}>
+          {/* <Route path="contactme" element={<ContactMe />} /> */}
+        </Route>
+        <Route path="/product-landing-page" element={<ProductLandingPage />}>
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
         {/* <Route
