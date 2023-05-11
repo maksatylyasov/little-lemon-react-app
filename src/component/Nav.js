@@ -14,6 +14,7 @@ import Footer from "./Footer";
 import ConfirmedBooking from "./ConfirmedBooking";
 import App from "../App";
 import * as ReactDOM from "react-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 class Nav extends Component {
@@ -44,6 +45,19 @@ class Nav extends Component {
           {/* <a href="">Reservations</a> */}
           <Link to="/reservation">Reservations</Link>
           <Link to="/order-online">Order Online</Link>
+          <Link to="/shopping-cart">
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <ShoppingCartIcon />
+              <p
+                style={{
+                  display: this.props.addToCartLength == 0 ? "none" : "block",
+                }}
+              >
+                {this.props.addToCartLength}
+              </p>
+            </div>
+          </Link>
+
           {/* <a href="">About</a> */}
         </ul>
         {/* </Router> */}

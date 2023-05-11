@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Nav from "./Nav";
-import ProductLandingSection from "./ProductLangingSection";
+import CustomerReviews from "./CustomerReviews";
+import Button from "./Button";
+import Rating from "@mui/material/Rating";
+// import ProductLandingSection from "./ProductLangingSection";
 
 import image1 from "../assets/chocolate-cake.jpg";
 import image1Second from "../assets/chocolate-cake2.jpg";
@@ -26,6 +29,7 @@ const products = [
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
     rating: 5,
+    quantity: 0,
   },
   {
     id: "2",
@@ -35,6 +39,8 @@ const products = [
     image: image2,
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
+    rating: 5,
+    quantity: 0,
   },
   {
     id: "3",
@@ -44,6 +50,8 @@ const products = [
     image: image3,
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
+    rating: 5,
+    quantity: 0,
   },
   {
     id: "4",
@@ -53,6 +61,8 @@ const products = [
     image: image4,
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
+    rating: 5,
+    quantity: 0,
   },
   {
     id: "5",
@@ -62,6 +72,8 @@ const products = [
     image: image5,
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
+    rating: 5,
+    quantity: 0,
   },
   {
     id: "6",
@@ -71,19 +83,188 @@ const products = [
     image: image6,
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
+    rating: 5,
+    quantity: 0,
   },
 ];
 
-const ProductLandingPage = () => {
+const ProductLandingPage = (props) => {
+  // console.log("TEST DATA " + props.testData);
+  // props.AddCartDetails(ProductDetails);
+  const AddCartDetailsPage = (cart) => {
+    props.AddCartDetails(cart);
+  };
+
   return (
     <>
       <Header className="Header">
         <Nav className="Nav"></Nav>
       </Header>
-      <ProductLandingSection>{products[0]}</ProductLandingSection>
+      <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
+        {products[0]}
+      </ProductLandingSection>
       <Footer></Footer>
     </>
   );
 };
 
+const ProductLandingSection = (props) => {
+  const [ProductDetails, setProductDetails] = useState("");
+  //   var quantity = 1;
+  const [quantity, SetQuantity] = useState(1);
+  // console.log("I AM HERE " + props.addToCartDetails.image);
+  const handleCounterClickMinus = () => {
+    if (quantity > 1) SetQuantity(quantity - 1);
+    else SetQuantity(1);
+    // document.getElementById("counter").append = quantity;
+  };
+  const handleCounterClickPlus = () => {
+    SetQuantity(quantity + 1);
+    // document.getElementById("counter").append = quantity;
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    // props.addToCartDetails.image = props.children.image;
+    // console.log("I AM HERE " + props.AddCartDetails(ProductDetails));
+    // props.AddCartDetails(ProductDetails);
+    setProductDetails({
+      title: props.children.title,
+      price: props.children.price,
+      quantity: quantity,
+      image: props.children.image,
+    });
+    props.AddCartDetailsPage(ProductDetails);
+    console.log("TEST POINT  " + ProductDetails.title);
+  };
+
+  const [imageOpacity, setImageOpacity] = useState(true);
+  const [imageOpacity2, setImageOpacity2] = useState(false);
+  const [imageOpacity3, setImageOpacity3] = useState(false);
+
+  const handleThumbnailClick = (value) => {
+    setMainImage(value);
+    if (value === props.children.image) {
+      setImageOpacity(true);
+      setImageOpacity2(false);
+      setImageOpacity3(false);
+    } else if (value === props.children.image2) {
+      setImageOpacity(false);
+      setImageOpacity2(true);
+      setImageOpacity3(false);
+    } else {
+      setImageOpacity(false);
+      setImageOpacity2(false);
+      setImageOpacity3(true);
+    }
+  };
+
+  const [returnHandle, setReturnHandle] = useState(false);
+  const [mainImage, setMainImage] = useState(props.children.image);
+
+  return (
+    <>
+      <section className="product-page">
+        <section className="product-images">
+          <article className="small-images">
+            <img
+              onClick={() => {
+                handleThumbnailClick(props.children.image);
+              }}
+              style={
+                imageOpacity
+                  ? { opacity: "50%", borderStyle: "solid" }
+                  : { opacity: "100%" }
+              }
+              src={props.children.image}
+              alt=""
+            />
+            <img
+              onClick={() => {
+                handleThumbnailClick(props.children.image2);
+              }}
+              style={
+                imageOpacity2
+                  ? { opacity: "50%", borderStyle: "solid" }
+                  : { opacity: "100%" }
+              }
+              src={props.children.image2}
+              alt=""
+            />
+            <img
+              onClick={() => {
+                handleThumbnailClick(props.children.image3);
+              }}
+              style={
+                imageOpacity3
+                  ? { opacity: "50%", borderStyle: "solid" }
+                  : { opacity: "100%" }
+              }
+              src={props.children.image3}
+              alt=""
+            />
+          </article>
+          <article className="main-image">
+            <img src={mainImage} alt="" />
+          </article>
+        </section>
+
+        <section className="product-details">
+          <article>
+            <h1>{props.children.title}</h1>
+            <Rating name="read-only" value={props.children.rating} readOnly />
+            <h3>{props.children.price}</h3>
+          </article>
+          <article id="quantity">
+            <Button
+              name="-"
+              handleClick={handleCounterClickMinus}
+              className="Button"
+              onClick={handleCounterClickMinus}
+            ></Button>
+            <p id="counter">{quantity}</p>
+            <Button
+              handleClick={handleCounterClickPlus}
+              name="+"
+              className="Button"
+              onClick={handleCounterClickPlus}
+            ></Button>
+          </article>
+          <article>
+            <h5>Contains the following</h5>
+            <p>{props.children.ingridients}</p>
+          </article>
+          <Button
+            handleClick={handleAddToCart}
+            name={"Add to Cart" + " " + props.children.price}
+            className="Button"
+            onClick={handleAddToCart}
+          ></Button>
+          <article>
+            <h5>Description</h5>
+            <p>{props.children.description}</p>
+          </article>
+          <article>
+            <h5
+              onClick={() => {
+                setReturnHandle(!returnHandle);
+              }}
+            >
+              Return
+            </h5>
+            <p
+              style={returnHandle ? { display: "block" } : { display: "none" }}
+            >
+              Sorry, we do not accept returns or refunds for our restaurant
+              products. We strive to provide the highest quality food and
+              service, and if there are any issues with your order, please let
+              us know so we can make it right. Thank you for your understanding.
+            </p>
+          </article>
+        </section>
+      </section>
+      <CustomerReviews />
+    </>
+  );
+};
 export default ProductLandingPage;

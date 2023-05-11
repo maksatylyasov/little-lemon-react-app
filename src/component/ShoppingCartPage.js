@@ -1,20 +1,18 @@
 import React from "react";
 import Header from "./Header";
 import Nav from "./Nav";
-import Main from "./Main";
 import Footer from "./Footer";
-import Newsletter from "./Newsletter";
+import ShoppingCart from "./ShoppingCart";
 
-const Homepage = (props) => {
+const ShoppingCartPage = (props) => {
   return (
-    <div>
+    <>
       <Header className="Header">
         <Nav addToCartLength={props.addToCartLength} className="Nav"></Nav>
       </Header>
-      <Main className="Main"></Main>
-      <Newsletter />
-      <Footer></Footer>
-    </div>
+      <ShoppingCart addToCartDetails={props.addToCartDetails}></ShoppingCart>
+      <Footer />
+    </>
   );
 };
-export default Homepage;
+export default ShoppingCartPage;

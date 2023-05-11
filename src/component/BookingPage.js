@@ -33,7 +33,7 @@ import { seededRandom, fetchAPI, submitAPI } from "./RestAPI";
 //   //   .catch((error) => console.log(error));
 // };
 
-const BookingPage = () => {
+const BookingPage = (props) => {
   // const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   // ReactDOM.render(
@@ -43,7 +43,7 @@ const BookingPage = () => {
   return (
     <>
       <Header className="Header">
-        <Nav className="Nav"></Nav>
+        <Nav addToCartLength={props.addToCartLength} className="Nav"></Nav>
       </Header>
       {/* <Header className="Header">
         <Nav className="Nav"></Nav>

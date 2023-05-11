@@ -66,11 +66,11 @@ const products = [
   },
 ];
 
-const MenuPage = () => {
+const MenuPage = (props) => {
   return (
     <>
       <Header className="Header">
-        <Nav className="Nav"></Nav>
+        <Nav addToCartLength={props.addToCartLength} className="Nav"></Nav>
       </Header>
       <section id="menu-page">
         <HighLightProduct>{products[0]}</HighLightProduct>

@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: auto 1fr;
   /* grid-template-rows: 1fr; */
-  padding: 3vh;
+  padding: 5%;
   font-family: "Karla", sans-serif;
   /* font-size: 0.3rem; */
   justify-items: center;
@@ -693,12 +693,12 @@ button:active {
   margin-left: 10%;
 }
 
-.product-details .quantity {
+#quantity {
   display: flex;
   flex-direction: row;
   /* flex: 0 1 auto; */
   /* align-items: center; */
-  column-gap: 10%;
+  column-gap: 1vw;
 }
 
 .customer-reviews {
@@ -711,6 +711,20 @@ button:active {
 .customer-reviews .user {
   background-color: #fdf8e2;
   padding: 1%;
+}
+.shopping-cart {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: 5%;
+}
+.shopping-cart .order {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1%;
+}
+.shopping-cart img {
+  width: 30%;
+  height: auto;
 }
 
 @media only screen and (max-width: 700px) {

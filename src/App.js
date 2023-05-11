@@ -21,8 +21,25 @@ import Chicago from "./component/Chicago";
 import * as ReactDOM from "react-dom";
 import MenuPage from "./component/MenuPage";
 import ProductLandingPage from "./component/ProductLandingPage";
+import ShoppingCartPage from "./component/ShoppingCartPage";
+import { useState } from "react";
 
 function App() {
+  const [addToCartDetails, SetAddToCartDetails] = useState([]);
+
+  const AddCartDetails = (cart) => {
+    SetAddToCartDetails([...addToCartDetails, cart]);
+    console.log("I AM HERE " + addToCartDetails[0]);
+  };
+  // var addToCartDetails = {
+  //   title: "",
+  //   price: "",
+  //   quantity: 0,
+  //   image: "",
+  // };
+  let testData = "TEST DATA INSIDE";
+
+  let addToCartLength = addToCartDetails.length;
   return (
     <>
       <meta
@@ -42,25 +59,63 @@ function App() {
       <Main className="Main"></Main>
       <Footer></Footer> */}
       {/* <Homepage /> */}
+
       <Routes>
-        <Route path="/" element={<Homepage header="Home" />}>
+        <Route
+          path="/"
+          element={<Homepage addToCartLength={addToCartLength} header="Home" />}
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
-        <Route path="/about" element={<AboutPage />}>
+        <Route
+          path="/about"
+          element={<AboutPage addToCartLength={addToCartLength} />}
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
-        <Route path="/reservation" element={<BookingPage />}>
+        <Route
+          path="/reservation"
+          element={<BookingPage addToCartLength={addToCartLength} />}
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
-        <Route path="/menu" element={<MenuPage />}>
+        <Route
+          path="/menu"
+          element={<MenuPage addToCartLength={addToCartLength} />}
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
-        <Route path="/order-online" element={<ProductLandingPage />}>
+        <Route
+          path="/order-online"
+          element={
+            <ProductLandingPage
+              addToCartLength={addToCartLength}
+              AddCartDetails={AddCartDetails}
+            />
+          }
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
-        <Route path="/product-landing-page" element={<ProductLandingPage />}>
+        <Route
+          path="/product-landing-page"
+          element={
+            <ProductLandingPage
+              addToCartLength={addToCartLength}
+              AddCartDetails={AddCartDetails}
+            ></ProductLandingPage>
+          }
+        >
           {/* <Route path="contactme" element={<ContactMe />} /> */}
         </Route>
+        <Route
+          path="/shopping-cart"
+          element={
+            <ShoppingCartPage
+              addToCartLength={addToCartLength}
+              addToCartDetails={addToCartDetails}
+            />
+          }
+        ></Route>
         {/* <Route
           path="/contactme"
           element={<ContactMePage header="ContactMePage" />}
@@ -75,7 +130,6 @@ function App() {
           element={<PortfolioPage header="PortfolioPage" />}
         /> */}
       </Routes>
-
       {/* <BookingPage></BookingPage> */}
     </>
   );

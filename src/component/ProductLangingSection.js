@@ -8,6 +8,9 @@ import Rating from "@mui/material/Rating";
 import CustomerReviews from "./CustomerReviews";
 
 const ProductLandingSection = (props) => {
+  //   var quantity = 1;
+  const [quantity, SetQuantity] = useState(1);
+  // console.log("I AM HERE " + props.addToCartDetails.image);
   const handleCounterClickMinus = () => {
     if (quantity > 1) SetQuantity(quantity - 1);
     else SetQuantity(1);
@@ -18,7 +21,19 @@ const ProductLandingSection = (props) => {
     // document.getElementById("counter").append = quantity;
   };
 
-  const handleAddToCart = () => {};
+  var ProductDetails = {
+    title: props.children.title,
+    price: props.children.price,
+    quantity: quantity,
+    image: props.children.image,
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    // props.addToCartDetails.image = props.children.image;
+    // console.log("I AM HERE " + props.AddCartDetails(ProductDetails));
+    props.AddCartDetails(ProductDetails);
+  };
 
   const [imageOpacity, setImageOpacity] = useState(true);
   const [imageOpacity2, setImageOpacity2] = useState(false);
@@ -44,8 +59,12 @@ const ProductLandingSection = (props) => {
   const [returnHandle, setReturnHandle] = useState(false);
   const [mainImage, setMainImage] = useState(props.children.image);
 
-  //   var quantity = 1;
-  const [quantity, SetQuantity] = useState(1);
+  var addToCartDetails = {
+    title: props.children.title,
+    price: props.children.price,
+    quantity: quantity,
+    image: props.children.image,
+  };
   return (
     <>
       <section className="product-page">

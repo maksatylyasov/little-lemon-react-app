@@ -3,11 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Nav from "./Nav";
 
-const AboutPage = () => {
+const AboutPage = (props) => {
   return (
     <>
       <Header className="Header">
-        <Nav className="Nav"></Nav>
+        <Nav addToCartLength={props.addToCartLength} className="Nav"></Nav>
       </Header>
       <section className="about">
         <article>
