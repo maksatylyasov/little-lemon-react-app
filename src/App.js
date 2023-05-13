@@ -31,6 +31,9 @@ function App() {
     SetAddToCartDetails([...addToCartDetails, cart]);
     console.log("I AM HERE " + addToCartDetails[0]);
   };
+
+  const UpdateCardDetail = () => {};
+
   // var addToCartDetails = {
   //   title: "",
   //   price: "",

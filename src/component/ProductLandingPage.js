@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -29,7 +29,7 @@ const products = [
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
     rating: 5,
-    quantity: 0,
+    quantity: 6,
   },
   {
     id: "2",
@@ -109,9 +109,9 @@ const ProductLandingPage = (props) => {
 };
 
 const ProductLandingSection = (props) => {
-  const [ProductDetails, setProductDetails] = useState("");
   //   var quantity = 1;
   const [quantity, SetQuantity] = useState(1);
+
   // console.log("I AM HERE " + props.addToCartDetails.image);
   const handleCounterClickMinus = () => {
     if (quantity > 1) SetQuantity(quantity - 1);
@@ -122,21 +122,58 @@ const ProductLandingSection = (props) => {
     SetQuantity(quantity + 1);
     // document.getElementById("counter").append = quantity;
   };
+  var [ProductDetails, setProductDetails] = useState({
+    title: props.children.title,
+    price: props.children.price,
+    quantity: props.children.quantity,
+    image: props.children.image,
+  });
 
-  const handleAddToCart = (e) => {
-    e.preventDefault();
+  const [handleState, SetHandleState] = useState(false);
+
+  const handleAddToCart = () => {
+    SetHandleState(true);
     // props.addToCartDetails.image = props.children.image;
     // console.log("I AM HERE " + props.AddCartDetails(ProductDetails));
     // props.AddCartDetails(ProductDetails);
-    setProductDetails({
-      title: props.children.title,
-      price: props.children.price,
+    console.log("TEST1 QUANTITY  " + quantity);
+    // setProductDetails({
+    //   title: props.children.title,
+    //   price: props.children.price,
+    //   quantity: quantity,
+    //   image: props.children.image,
+    // });
+    // setProductDetails((prevState) => ({
+    //   ...prevState,
+    //   quantity: quantity,
+    // }));
+
+    // console.log("TEST productQuantity  " + ProductDetails.quantity);
+
+    setProductDetails((prevState) => ({
+      ...prevState,
       quantity: quantity,
-      image: props.children.image,
-    });
-    props.AddCartDetailsPage(ProductDetails);
-    console.log("TEST POINT  " + ProductDetails.title);
+    }));
+
+    // console.log("TEST2 QUANTITY  " + quantity);
+
+    // // props.AddCartDetailsPage(ProductDetails);
+    // console.log("TEST POINT  " + ProductDetails.quantity);
+    // console.log("TEST POINT2  " + quantity);
   };
+
+  useEffect(() => {
+    if (handleState) {
+      props.AddCartDetailsPage(ProductDetails);
+      SetHandleState(false);
+    }
+    // setProductDetails((prevState) => ({
+    //   ...prevState,
+    //   quantity: quantity,
+    // }));
+
+    console.log("TEST productQuantity  " + ProductDetails.quantity);
+  }, [ProductDetails.quantity]);
 
   const [imageOpacity, setImageOpacity] = useState(true);
   const [imageOpacity2, setImageOpacity2] = useState(false);
@@ -234,12 +271,14 @@ const ProductLandingSection = (props) => {
             <h5>Contains the following</h5>
             <p>{props.children.ingridients}</p>
           </article>
-          <Button
-            handleClick={handleAddToCart}
-            name={"Add to Cart" + " " + props.children.price}
+          <button
+            // handleClick={handleAddToCart}
+            // name={"Add to Cart" + " " + props.children.price}
             className="Button"
             onClick={handleAddToCart}
-          ></Button>
+          >
+            {"Add to Cart" + " " + props.children.price}
+          </button>
           <article>
             <h5>Description</h5>
             <p>{props.children.description}</p>

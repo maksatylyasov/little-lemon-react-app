@@ -36,13 +36,11 @@ const ShoppingCart = (props) => {
               <article id="quantity">
                 <Button
                   name="-"
-                  handleClick={handleCounterClickMinus}
                   className="Button"
                   onClick={handleCounterClickMinus}
                 ></Button>
-                <p id="counter">{quantity}</p>
+                <p id="counter">{element.quantity}</p>
                 <Button
-                  handleClick={handleCounterClickPlus}
                   name="+"
                   className="Button"
                   onClick={handleCounterClickPlus}
