@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Button from "./Button";
 
 const ShoppingCart = (props) => {
-  console.log(props.addToCartDetails);
+  console.log("Shopping Cart Page addToCartDetails= " + props.addToCartDetails);
 
-  const [quantity, SetQuantity] = useState(1);
-  // console.log("I AM HERE " + props.addToCartDetails.image);
-  const handleCounterClickMinus = () => {
-    if (quantity > 1) SetQuantity(quantity - 1);
+  const [quantity, SetQuantity] = useState(
+    props.addToCartDetails.length ? props.addToCartDetails[0].quantity : 1
+  );
+
+  const handleCounterClickMinus = (id, productQuantity) => {
+    if (quantity > 1) SetQuantity(productQuantity - 1);
     else SetQuantity(1);
-    // document.getElementById("counter").append = quantity;
+
+    // props.UpdateCardDetail({
+    //   id: id,
+    //   stock: quantity,
+    // });
+    console.log("handleMinus element.id= " + id);
   };
-  const handleCounterClickPlus = () => {
-    SetQuantity(quantity + 1);
-    // document.getElementById("counter").append = quantity;
+  const handleCounterClickPlus = (id, productQuantity) => {
+    SetQuantity(productQuantity + 1);
+    props.addToCartDetails.map((product) =>
+      product.id === id
+        ? { ...product, quantity: productQuantity + 1 }
+        : product
+    );
+
+    // props.UpdateCardDetail({
+    //   id: id,
+    //   stock: quantity,
+    // });
+    console.log("handlePLUS element.id= " + id);
   };
+
+  // useEffect(() => {
+  //   console.log("I AM HERE");
+  // }, [quantity]);
+
   return (
     <>
       <h1 style={{ textAlign: "start" }}>Your Cart</h1>
@@ -34,17 +56,28 @@ const ShoppingCart = (props) => {
                 ).toFixed(2)}
               </p>
               <article id="quantity">
-                <Button
+                <button
+                  // handleClick={handleCounterClickMinus}
                   name="-"
                   className="Button"
-                  onClick={handleCounterClickMinus}
-                ></Button>
+                  onClick={() => {
+                    handleCounterClickMinus(element.id, element.quantity);
+                  }}
+                >
+                  -
+                </button>
                 <p id="counter">{element.quantity}</p>
-                <Button
+                <button
+                  // handleClick={handleCounterClickPlus}
                   name="+"
                   className="Button"
-                  onClick={handleCounterClickPlus}
-                ></Button>
+                  onClick={() => {
+                    handleCounterClickPlus(element.id, element.quantity);
+                    // element.quantity = element.quantity + 1;
+                  }}
+                >
+                  +
+                </button>
               </article>
             </div>
           </article>

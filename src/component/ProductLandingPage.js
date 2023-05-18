@@ -29,7 +29,7 @@ const products = [
     price: "$21.99",
     ingridients: "Eggs, Gluten, Milk",
     rating: 5,
-    quantity: 6,
+    quantity: 1,
   },
   {
     id: "2",
@@ -103,6 +103,10 @@ const ProductLandingPage = (props) => {
       <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
         {products[0]}
       </ProductLandingSection>
+      <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
+        {products[1]}
+      </ProductLandingSection>
+
       <Footer></Footer>
     </>
   );
@@ -111,22 +115,28 @@ const ProductLandingPage = (props) => {
 const ProductLandingSection = (props) => {
   //   var quantity = 1;
   const [quantity, SetQuantity] = useState(1);
+  const [priceTag, SetPriceTag] = useState(
+    parseFloat(props.children.price.replace("$", ""))
+  );
 
   // console.log("I AM HERE " + props.addToCartDetails.image);
   const handleCounterClickMinus = () => {
     if (quantity > 1) SetQuantity(quantity - 1);
     else SetQuantity(1);
     // document.getElementById("counter").append = quantity;
+    // SetPriceTag(parseFloat(props.children.price.replace("$", "")) * quantity);
   };
   const handleCounterClickPlus = () => {
     SetQuantity(quantity + 1);
     // document.getElementById("counter").append = quantity;
+    // SetPriceTag(parseFloat(props.children.price.replace("$", "")) * quantity);
   };
   var [ProductDetails, setProductDetails] = useState({
-    title: props.children.title,
-    price: props.children.price,
-    quantity: props.children.quantity,
-    image: props.children.image,
+    // id: props.children.id,
+    // title: props.children.title,
+    // price: props.children.price,
+    // quantity: props.children.quantity,
+    // image: props.children.image,
   });
 
   const [handleState, SetHandleState] = useState(false);
@@ -137,12 +147,13 @@ const ProductLandingSection = (props) => {
     // console.log("I AM HERE " + props.AddCartDetails(ProductDetails));
     // props.AddCartDetails(ProductDetails);
     console.log("TEST1 QUANTITY  " + quantity);
-    // setProductDetails({
-    //   title: props.children.title,
-    //   price: props.children.price,
-    //   quantity: quantity,
-    //   image: props.children.image,
-    // });
+    setProductDetails({
+      id: props.children.id,
+      title: props.children.title,
+      price: props.children.price,
+      quantity: props.children.quantity,
+      image: props.children.image,
+    });
     // setProductDetails((prevState) => ({
     //   ...prevState,
     //   quantity: quantity,
@@ -164,16 +175,18 @@ const ProductLandingSection = (props) => {
 
   useEffect(() => {
     if (handleState) {
+      console.log("ProductDetails in useEffect =" + ProductDetails);
       props.AddCartDetailsPage(ProductDetails);
       SetHandleState(false);
     }
+
     // setProductDetails((prevState) => ({
     //   ...prevState,
     //   quantity: quantity,
     // }));
 
     console.log("TEST productQuantity  " + ProductDetails.quantity);
-  }, [ProductDetails.quantity]);
+  }, [handleState]);
 
   const [imageOpacity, setImageOpacity] = useState(true);
   const [imageOpacity2, setImageOpacity2] = useState(false);
@@ -198,6 +211,11 @@ const ProductLandingSection = (props) => {
 
   const [returnHandle, setReturnHandle] = useState(false);
   const [mainImage, setMainImage] = useState(props.children.image);
+
+  useEffect(() => {
+    SetPriceTag(parseFloat(props.children.price.replace("$", "")) * quantity);
+    console.log("priceTage " + priceTag);
+  }, [quantity]);
 
   return (
     <>
@@ -250,7 +268,7 @@ const ProductLandingSection = (props) => {
           <article>
             <h1>{props.children.title}</h1>
             <Rating name="read-only" value={props.children.rating} readOnly />
-            <h3>{props.children.price}</h3>
+            <h3>${priceTag.toFixed(2)}</h3>
           </article>
           <article id="quantity">
             <Button
@@ -277,7 +295,7 @@ const ProductLandingSection = (props) => {
             className="Button"
             onClick={handleAddToCart}
           >
-            {"Add to Cart" + " " + props.children.price}
+            {"Add to Cart" + " $" + priceTag.toFixed(2)}
           </button>
           <article>
             <h5>Description</h5>

@@ -22,18 +22,50 @@ import * as ReactDOM from "react-dom";
 import MenuPage from "./component/MenuPage";
 import ProductLandingPage from "./component/ProductLandingPage";
 import ShoppingCartPage from "./component/ShoppingCartPage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [addToCartDetails, SetAddToCartDetails] = useState([]);
+  const [effectTrigger, setEffectTrigger] = useState(false);
+  const [basket, SetBasket] = useState({});
 
   const AddCartDetails = (cart) => {
+    // SetBasket(cart);
     SetAddToCartDetails([...addToCartDetails, cart]);
-    console.log("I AM HERE " + addToCartDetails[0]);
+
+    setEffectTrigger(!effectTrigger);
   };
 
-  const UpdateCardDetail = () => {};
+  // useEffect(() => {
+  //   SetAddToCartDetails([...addToCartDetails, cart]);
+  //   console.log("app.js page addToCartDetails= " + addToCartDetails[0]);
+  // }, [effectTrigger]);
 
+  const UpdateCardDetail = (cart) => {
+    setEffectTrigger(!effectTrigger);
+    SetAddToCartDetails(
+      addToCartDetails.map((product) =>
+        product.id === cart.id ? { ...product, quantity: cart.stock } : product
+      )
+    );
+
+    console.log("UpdateCardDetails=  " + cart.id + " " + cart.stock);
+  };
+
+  useEffect(() => {
+    if (addToCartDetails.length > 0)
+      console.log(
+        "app.js page addToCartDetails Quantity[0]= " +
+          addToCartDetails[0].quantity
+      );
+    console.log(
+      "app.js page addToCartDetails length= " + addToCartDetails.length
+    );
+    for (let product in addToCartDetails)
+      console.log(
+        "app.js page addToCartDetails= " + addToCartDetails[product].title
+      );
+  }, [effectTrigger]);
   // var addToCartDetails = {
   //   title: "",
   //   price: "",
@@ -116,6 +148,7 @@ function App() {
             <ShoppingCartPage
               addToCartLength={addToCartLength}
               addToCartDetails={addToCartDetails}
+              UpdateCardDetail={UpdateCardDetail}
             />
           }
         ></Route>
