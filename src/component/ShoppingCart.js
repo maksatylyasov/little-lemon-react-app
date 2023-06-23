@@ -3,8 +3,26 @@ import Header from "./Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  postItems,
+  dummyReducer,
+  quantityPlus,
+  quantityMinus,
+} from "../features/basketItemsSlices";
+import { nanoid } from "@reduxjs/toolkit";
 
 const ShoppingCart = (props) => {
+  const basketItems = useSelector((state) => state.basketItems);
+  console.log("REDUX ITEMS=" + basketItems);
+
+  const dispatch = useDispatch();
+  // for (let i = 0; i < 1; i++) dispatch(dummyReducer("DUMMY PARAMETER"));
+
+  let basketProducts = props.addToCartDetails.map((product) => {
+    return product;
+  });
+
   console.log("Shopping Cart Page addToCartDetails= " + props.addToCartDetails);
 
   const [quantity, SetQuantity] = useState(
@@ -23,7 +41,7 @@ const ShoppingCart = (props) => {
   };
   const handleCounterClickPlus = (id, productQuantity) => {
     SetQuantity(productQuantity + 1);
-    props.addToCartDetails.map((product) =>
+    basketProducts.map((product) =>
       product.id === id
         ? { ...product, quantity: productQuantity + 1 }
         : product
@@ -33,7 +51,9 @@ const ShoppingCart = (props) => {
     //   id: id,
     //   stock: quantity,
     // });
-    console.log("handlePLUS element.id= " + id);
+    console.log(
+      "handlePLUS basketProducts[0].quantity= " + basketProducts[0].quantity
+    );
   };
 
   // useEffect(() => {
@@ -42,8 +62,15 @@ const ShoppingCart = (props) => {
 
   return (
     <>
-      <h1 style={{ textAlign: "start" }}>Your Cart</h1>
-      {props.addToCartDetails.map((element) => (
+      <h1
+        // onClick={() => {
+        //   dispatch(dummyReducer("DUMMY PARAMETER"));
+        // }}
+        style={{ textAlign: "start" }}
+      >
+        Your Cart
+      </h1>
+      {basketItems.map((element) => (
         <section className="shopping-cart">
           <article className="order">
             <img src={element.image} alt="" />
@@ -61,7 +88,8 @@ const ShoppingCart = (props) => {
                   name="-"
                   className="Button"
                   onClick={() => {
-                    handleCounterClickMinus(element.id, element.quantity);
+                    // handleCounterClickMinus(element.id, element.quantity);
+                    dispatch(quantityMinus(element.id));
                   }}
                 >
                   -
@@ -72,8 +100,9 @@ const ShoppingCart = (props) => {
                   name="+"
                   className="Button"
                   onClick={() => {
-                    handleCounterClickPlus(element.id, element.quantity);
+                    // handleCounterClickPlus(element.id, element.quantity);
                     // element.quantity = element.quantity + 1;
+                    dispatch(quantityPlus(element.id));
                   }}
                 >
                   +

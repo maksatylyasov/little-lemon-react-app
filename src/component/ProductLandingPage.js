@@ -17,6 +17,10 @@ import image4 from "../assets/close-up-shot-homemade-salted-caramel-cream-browni
 import image5 from "../assets/Coconut-Cream-Pie.jpg";
 import image6 from "../assets/Peanut-Butter-Cupcake.jpg";
 
+import { useDispatch, useSelector } from "react-redux";
+import { postItems, dummyReducer } from "../features/basketItemsSlices";
+import { nanoid } from "@reduxjs/toolkit";
+
 const products = [
   {
     id: "1",
@@ -103,9 +107,9 @@ const ProductLandingPage = (props) => {
       <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
         {products[0]}
       </ProductLandingSection>
-      <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
+      {/* <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
         {products[1]}
-      </ProductLandingSection>
+      </ProductLandingSection> */}
 
       <Footer></Footer>
     </>
@@ -113,6 +117,8 @@ const ProductLandingPage = (props) => {
 };
 
 const ProductLandingSection = (props) => {
+  const dispatch = useDispatch();
+
   //   var quantity = 1;
   const [quantity, SetQuantity] = useState(1);
   const [priceTag, SetPriceTag] = useState(
@@ -165,6 +171,15 @@ const ProductLandingSection = (props) => {
       ...prevState,
       quantity: quantity,
     }));
+    dispatch(
+      postItems({
+        id: nanoid(),
+        title: props.children.title,
+        price: props.children.price,
+        quantity: quantity,
+        image: props.children.image,
+      })
+    );
 
     // console.log("TEST2 QUANTITY  " + quantity);
 
