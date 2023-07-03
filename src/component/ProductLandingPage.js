@@ -107,9 +107,9 @@ const ProductLandingPage = (props) => {
       <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
         {products[0]}
       </ProductLandingSection>
-      {/* <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
+      <ProductLandingSection AddCartDetailsPage={AddCartDetailsPage}>
         {products[1]}
-      </ProductLandingSection> */}
+      </ProductLandingSection>
 
       <Footer></Footer>
     </>

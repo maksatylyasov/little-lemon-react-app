@@ -254,6 +254,14 @@ button:active {
   font-family: "Karla", serif;
   color: #ffffff;
 }
+.footer-nav-social {
+  display: grid;
+  grid-template-columns: auto;
+  font-size: 20px;
+  font-weight: Bold;
+  font-family: "Karla", serif;
+  color: #ffffff;
+}
 .reservations {
   display: flex;
   justify-content: center;
@@ -712,10 +720,19 @@ button:active {
   background-color: #fdf8e2;
   padding: 1%;
 }
+.shopping-cart-page {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
 .shopping-cart {
   display: grid;
   grid-template-columns: 60% 40%;
   margin: 5%;
+  justify-content: center;
 }
 .shopping-cart .order {
   display: flex;
@@ -723,8 +740,27 @@ button:active {
   column-gap: 1%;
 }
 .shopping-cart img {
-  width: 30%;
+  width: 50%;
   height: auto;
+}
+.add-tip {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5%;
+  /* background-color: #967f0d; */
+}
+.add-tip div {
+  background-color: #967f0d1c;
+  padding: 5%;
+}
+.add-tip div:hover {
+  opacity: 80%;
+  background-color: #495e5773;
+}
+.add-tip .active {
+  /* opacity: 80%; */
+  color: white;
+  background-color: #495e57;
 }
 
 @media only screen and (max-width: 700px) {

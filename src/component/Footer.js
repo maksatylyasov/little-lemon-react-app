@@ -1,5 +1,17 @@
 import React, { Component } from "react";
 import Logo from "../assets/logo.jpg";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import PlaceIcon from "@mui/icons-material/Place";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import BookOnlineIcon from "@mui/icons-material/BookOnline";
+import LoginIcon from "@mui/icons-material/Login";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 const Footer = () => {
   return (
@@ -11,22 +23,23 @@ const Footer = () => {
         <div className="footer-nav">
           <h2>About Us</h2>
           <a className="hero-description" href="">
-            Home
+            <HomeIcon fontSize="small"></HomeIcon> Home
           </a>
           <a className="hero-description" href="">
-            About
+            <InfoIcon fontSize="small"></InfoIcon> About
           </a>
           <a className="hero-description" href="">
-            Menu
+            <RestaurantIcon fontSize="small"></RestaurantIcon> Menu
           </a>
           <a className="hero-description" href="">
-            Reservations
+            <BookOnlineIcon fontSize="small"></BookOnlineIcon> Reservations
           </a>
           <a className="hero-description" href="">
+            <ShoppingCartCheckoutIcon fontSize="small"></ShoppingCartCheckoutIcon>{" "}
             Order Online
           </a>
           <a className="hero-description" href="">
-            Login
+            <LoginIcon fontSize="small"></LoginIcon> Login
           </a>
         </div>
       </div>
@@ -34,28 +47,30 @@ const Footer = () => {
         <div className="footer-nav">
           <h2>Contact</h2>
           <a className="hero-description" href="">
-            Address
+            <PlaceIcon></PlaceIcon> Address
           </a>
           <a className="hero-description" href="">
-            Phone Number
+            <PhoneIcon></PhoneIcon> Phone
           </a>
           <a className="hero-description" href="">
-            Email
+            <EmailIcon></EmailIcon> Email
           </a>
         </div>
       </div>
       <div>
-        <div className="footer-nav">
+        <div className="footer-nav-social">
           <h2>Social Media</h2>
-          <a className="hero-description" href="">
-            Address
-          </a>
-          <a className="hero-description" href="">
-            Phone Number
-          </a>
-          <a className="hero-description" href="">
-            Email
-          </a>
+          <div>
+            <a className="hero-description" href="">
+              <FacebookIcon fontSize="large"></FacebookIcon>
+            </a>
+            <a className="hero-description" href="">
+              <InstagramIcon fontSize="large"></InstagramIcon>
+            </a>
+            <a className="hero-description" href="">
+              <TwitterIcon fontSize="large"></TwitterIcon>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
