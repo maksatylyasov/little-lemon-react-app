@@ -40,6 +40,8 @@ import { priceCounter } from "../features/basketTotalPrice";
 const ShoppingCart = (props) => {
   const [alignment, setAlignment] = React.useState("left");
 
+  // const total = React.useRef(0);
+
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
@@ -67,6 +69,7 @@ const ShoppingCart = (props) => {
     let total = 0;
     basketItems.map((element) => (total += parseFloat(element.totalPrice)));
     SetTotalBasket(total.toFixed(2));
+    console.log("BREAKPOINT inside useEffect totalBasket= " + totalBasket);
   });
 
   const handleCounterClickMinus = (id, productQuantity) => {
@@ -119,7 +122,7 @@ const ShoppingCart = (props) => {
         {/* <ShoppingCartItem>{basketItems[1]}</ShoppingCartItem> */}
         <section style={basketItems.length ? {} : { display: "none" }}>
           <ShoppingCartPriceDetails
-            totalPrice={totalBasket}
+            totalPrice={parseFloat(totalBasket)}
           ></ShoppingCartPriceDetails>
         </section>
       </section>

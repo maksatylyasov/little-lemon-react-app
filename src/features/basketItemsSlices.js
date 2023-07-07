@@ -18,7 +18,7 @@ const basketItemsSlice = createSlice({
     postItems: (state, action) => {
       state.push(action.payload);
       console.log(
-        "POST ITEMS REDUCER= " + action.payload + ", STATE= " + state
+        "POST ITEMS REDUCER= " + action.payload.totalPrice + ", STATE= " + state
       );
     },
     quantityPlus: (state, action) => {

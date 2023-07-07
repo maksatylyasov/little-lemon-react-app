@@ -20,8 +20,13 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { priceCounter } from "../features/basketTotalPrice";
 
 const ShoppingCartPriceDetails = (props) => {
+  console.log("BREAK POINT SHOPPINGCARTPRICEDETAILS=" + props.totalPrice);
   const [alignment, setAlignment] = React.useState("left");
   const [tip, setTip] = React.useState(0);
+
+  React.useEffect(() => {
+    setTip(((props.totalPrice * 10) / 100).toFixed(2));
+  }, [props.totalPrice]);
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);

@@ -178,6 +178,8 @@ const ProductLandingSection = (props) => {
         price: props.children.price,
         quantity: quantity,
         image: props.children.image,
+        totalPrice:
+          quantity * parseFloat(props.children.price.replace("$", "")),
       })
     );
 

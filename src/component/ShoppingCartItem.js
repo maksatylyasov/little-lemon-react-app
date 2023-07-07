@@ -10,7 +10,7 @@ import {
 import { updateTotalPrice } from "../features/basketTotalPrice";
 
 const ShoppingCartItem = (props) => {
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
   return (
     <>
