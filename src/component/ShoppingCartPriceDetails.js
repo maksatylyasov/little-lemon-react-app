@@ -17,13 +17,16 @@ import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
+import { priceCounter } from "../features/basketTotalPrice";
+
 const ShoppingCartPriceDetails = (props) => {
   const [alignment, setAlignment] = React.useState("left");
+  const [tip, setTip] = React.useState(0);
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
-  const totalBasketPrice = useSelector((state) => state.totalPrice.value);
+  const totalBasketPrice = useSelector(priceCounter);
   return (
     <>
       <section>
@@ -50,10 +53,13 @@ const ShoppingCartPriceDetails = (props) => {
                 alignItems: "center",
                 flexDirection: "column",
               }}
+              onClick={() => {
+                setTip(((props.totalPrice * 10) / 100).toFixed(2));
+              }}
             >
               {/* <FormatAlignLeftIcon /> */}
               <div>10%</div>
-              <div>$9</div>
+              <div>${((props.totalPrice * 10) / 100).toFixed(2)}</div>
             </ToggleButton>
             <ToggleButton
               value="center"
@@ -63,9 +69,12 @@ const ShoppingCartPriceDetails = (props) => {
                 alignItems: "center",
                 flexDirection: "column",
               }}
+              onClick={() => {
+                setTip(((props.totalPrice * 15) / 100).toFixed(2));
+              }}
             >
               <div>15%</div>
-              <div>$9</div>
+              <div>${((props.totalPrice * 15) / 100).toFixed(2)}</div>
             </ToggleButton>
             <ToggleButton
               value="right"
@@ -75,9 +84,12 @@ const ShoppingCartPriceDetails = (props) => {
                 alignItems: "center",
                 flexDirection: "column",
               }}
+              onClick={() => {
+                setTip(((props.totalPrice * 20) / 100).toFixed(2));
+              }}
             >
               <div>20%</div>
-              <div>$9</div>
+              <div>${((props.totalPrice * 20) / 100).toFixed(2)}</div>
             </ToggleButton>
             <ToggleButton
               value="justify"
@@ -104,11 +116,20 @@ const ShoppingCartPriceDetails = (props) => {
           </Box>
         </article>
         <article>
-          <p>Subtotal: {totalBasketPrice}</p>
-          <p>Estimated Taxes: {}</p>
-          <p>Tip: {}</p>
+          <p>Subtotal: ${props.totalPrice}</p>
           <p>
-            <strong>Estimated order total: {}</strong>
+            Estimated Taxes: ${((props.totalPrice * 7.25) / 100).toFixed(2)}
+          </p>
+          <p>Tip: ${tip}</p>
+          <p>
+            <strong>
+              Estimated order total: $
+              {(
+                parseFloat(props.totalPrice) +
+                parseFloat(tip) +
+                parseFloat(((props.totalPrice * 7.25) / 100).toFixed(2))
+              ).toFixed(2)}
+            </strong>
           </p>
         </article>
         <button className="Button">Continue to payment</button>

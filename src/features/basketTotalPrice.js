@@ -15,3 +15,5 @@ export default basketTotalPrice.reducer;
 
 // export const totalPrice = (state) => state.totalPrice.value;
 export const { updateTotalPrice } = basketTotalPrice.actions;
+
+export const priceCounter = (state) => state.totalPrice.value;
