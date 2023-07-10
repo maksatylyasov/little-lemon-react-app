@@ -16,6 +16,8 @@ import App from "../App";
 import * as ReactDOM from "react-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
+import ShoppingCartItemsPopup from "./ShoppingCartItemsPopup";
+
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 class Nav extends Component {
   constructor(props) {
@@ -45,9 +47,15 @@ class Nav extends Component {
           {/* <a href="">Reservations</a> */}
           <Link to="/reservation">Reservations</Link>
           <Link to="/order-online">Order Online</Link>
-          <Link to="/shopping-cart">
+          <Link
+            onMouseEnter={() => {}}
+            onMouseLeave={() => {}}
+            to="/shopping-cart"
+          >
             <div style={{ display: "flex", flexDirection: "row" }}>
               <ShoppingCartIcon />
+              <ShoppingCartItemsPopup />
+
               <p
                 style={{
                   display: this.props.addToCartLength == 0 ? "none" : "block",

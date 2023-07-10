@@ -17,6 +17,7 @@ import CallToAction from "./component/CallToAction";
 import Specials from "./component/Specials";
 import CustomerSay from "./component/CustomersSay";
 import Chicago from "./component/Chicago";
+import PaymentPage from "./component/PaymentPage";
 
 import * as ReactDOM from "react-dom";
 import MenuPage from "./component/MenuPage";
@@ -151,7 +152,12 @@ function App() {
               UpdateCardDetail={UpdateCardDetail}
             />
           }
-        ></Route>
+        >
+          <Route
+            path="/shopping-cart/payment"
+            element={<PaymentPage></PaymentPage>}
+          ></Route>
+        </Route>
         {/* <Route
           path="/contactme"
           element={<ContactMePage header="ContactMePage" />}

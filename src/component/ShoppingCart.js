@@ -36,6 +36,7 @@ import ShoppingCartPriceDetails from "./ShoppingCartPriceDetails";
 import ShoppingCartItem from "./ShoppingCartItem";
 
 import { priceCounter } from "../features/basketTotalPrice";
+import CheckoutFooter from "./CheckoutFooter";
 
 const ShoppingCart = (props) => {
   const [alignment, setAlignment] = React.useState("left");
@@ -125,6 +126,9 @@ const ShoppingCart = (props) => {
             totalPrice={parseFloat(totalBasket)}
           ></ShoppingCartPriceDetails>
         </section>
+      </section>
+      <section>
+        <CheckoutFooter></CheckoutFooter>
       </section>
     </>
   );

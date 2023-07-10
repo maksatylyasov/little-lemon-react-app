@@ -19,6 +19,15 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 import { priceCounter } from "../features/basketTotalPrice";
 
+import {
+  Outlet,
+  Link,
+  Routes,
+  Route,
+  Switch,
+  BrowserRouter as Router,
+} from "react-router-dom";
+
 const ShoppingCartPriceDetails = (props) => {
   console.log("BREAK POINT SHOPPINGCARTPRICEDETAILS=" + props.totalPrice);
   const [alignment, setAlignment] = React.useState("left");
@@ -137,7 +146,9 @@ const ShoppingCartPriceDetails = (props) => {
             </strong>
           </p>
         </article>
-        <button className="Button">Continue to payment</button>
+        <Link to="/shopping-cart/payment">
+          <button className="Button">Continue to payment</button>
+        </Link>
       </section>
     </>
   );
