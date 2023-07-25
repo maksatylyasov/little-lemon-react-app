@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import CardImage1 from "../assets/greek-salad.jpg";
 import CardImage2 from "../assets/lemon-dessert.jpg";
 import CardImage3 from "../assets/bruschetta.jpg";
 import FastDeliveryImage from "../assets/fast-delivery.jpg";
-import { motion } from "framer-motion";
+import { motion, useTime, useTransform, useInView } from "framer-motion";
 
 import image from "../assets/chocolate-cake.jpg";
 import image2 from "../assets/caramel-cake-chocolate.jpg";
@@ -42,12 +42,28 @@ const products = [
 ];
 
 const Specials = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const inViewAnimationLeft = {
+    transform: isInView ? "none" : "translateX(-200px)",
+    opacity: isInView ? 1 : 0,
+    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+  };
+  const inViewAnimationLeftLate = {
+    transform: isInView ? "none" : "translateX(-200px)",
+    opacity: isInView ? 1 : 0,
+    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+  };
   return (
     <motion.div className="highlight">
-      <div className="Specials-header">
+      <motion.div
+        ref={ref}
+        style={inViewAnimationLeft}
+        className="Specials-header"
+      >
         <h2 className="main-text-title">Specials</h2>
         <button className="Button">Online Menu</button>
-      </div>
+      </motion.div>
       {/* <div className="card-container">
         {products.map((product) => (
           <motion.div whileHover={{ scale: 1.05 }} className="card-specials">
@@ -62,7 +78,11 @@ const Specials = () => {
           </motion.div>
         ))}
       </div> */}
-      <motion.div className="card-container">
+      <motion.div
+        ref={ref}
+        style={inViewAnimationLeftLate}
+        className="card-container"
+      >
         {products.map((product) => (
           // <ProductCard product={product} />
           <ItemCard product={product} />
