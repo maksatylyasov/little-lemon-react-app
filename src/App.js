@@ -152,12 +152,16 @@ function App() {
               UpdateCardDetail={UpdateCardDetail}
             />
           }
-        >
-          <Route
-            path="/shopping-cart/payment"
-            element={<PaymentPage></PaymentPage>}
-          ></Route>
-        </Route>
+        ></Route>
+        <Route
+          path="/shopping-cart/payment"
+          element={
+            <PaymentPage
+              addToCartLength={addToCartLength}
+              AddCartDetails={AddCartDetails}
+            ></PaymentPage>
+          }
+        ></Route>
         {/* <Route
           path="/contactme"
           element={<ContactMePage header="ContactMePage" />}

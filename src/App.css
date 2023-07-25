@@ -19,7 +19,7 @@ body {
   /* font-size: 0.3rem; */
   justify-items: center;
   /* justify-content: right; */
-  /* background-color: #df6565; */
+  background-color: white;
 }
 .Main {
   display: grid;
@@ -174,28 +174,33 @@ button:active {
 .card-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   /* grid-template-columns: 300px 300px 300px; */
   /* background-color: aqua; */
-  grid-column-gap: 20px;
+  grid-column-gap: 0.5%;
   justify-content: center;
   align-items: center;
 }
 .card-container img {
   width: 100%;
+  height: auto;
 }
 .card-specials {
   display: grid;
-  grid-template-columns: 30vw;
-  grid-template-rows: auto;
+  /* flex-direction: column; */
+  flex-wrap: nowrap;
+  width: 30%;
+  /* height: auto; */
+  /* grid-template-columns: 25%; */
+  /* grid-template-rows: auto; */
 
   justify-items: center;
   justify-content: center;
   background-color: #edefee;
 }
-/* .card-specials img {
-  width: 50%;
-} */
+.card-specials img {
+  width: 505;
+}
 
 .img-wrap-card {
   border-radius: 16px;
@@ -236,7 +241,7 @@ button:active {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 200px;
   grid-column-gap: 50px;
-  /* background-color: #495e57; */
+  background-color: white;
   padding: 10vh;
 }
 
@@ -366,11 +371,13 @@ button:active {
   /* height: 100vh; */
   flex-direction: row;
   flex-wrap: nowrap;
-  column-gap: 1vw;
+  column-gap: 3%;
   color: #495e57;
   justify-content: start;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 10%;
+  overflow: auto;
+  background-color: white;
 }
 .customer-say img {
   position: relative;
@@ -798,6 +805,19 @@ button:active {
   height: auto;
 }
 
+.home {
+  background-image: url("./assets/home-page-image.jpg");
+  /* height: 100vh; */
+  /* width: auto; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.highlight {
+  background-color: white;
+}
+
 @media only screen and (max-width: 700px) {
   @keyframes hamburger {
     from {
@@ -887,10 +907,11 @@ button:active {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 1vw;
+    column-gap: 10%;
     color: #495e57;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   .review-card {
     display: flex;

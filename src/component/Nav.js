@@ -54,15 +54,17 @@ class Nav extends Component {
           >
             <div style={{ display: "flex", flexDirection: "row" }}>
               <ShoppingCartIcon />
-              <ShoppingCartItemsPopup />
+              <ShoppingCartItemsPopup
+                basketQuantity={this.props.addToCartLength}
+              />
 
-              <p
+              {/* <p
                 style={{
                   display: this.props.addToCartLength == 0 ? "none" : "block",
                 }}
               >
                 {this.props.addToCartLength}
-              </p>
+              </p> */}
             </div>
           </Link>
 

@@ -112,8 +112,8 @@ const CustomerSay = () => {
 
   useAnimationFrame((t) => {
     const rotate = Math.sin(t / 10000) * 200;
-    const y = (1 + Math.sin(t / 2000)) * -50;
-    const y2 = (1 + Math.sin(t / 2000)) * -50;
+    const y = (1 + Math.sin(t / 10000)) * -50;
+    const y2 = (1 + Math.sin(t / 10000)) * -50;
     const z = [-500, 0, 500];
     ref.current.style.transform = `translateX(${y}px) translateX(${y2}px)`;
   });
@@ -123,8 +123,8 @@ const CustomerSay = () => {
       <motion.section
         // style={{ rotate }}
         // style={{ opacity }}
-        ref={ref}
-        variants={container}
+        // ref={ref}
+        // variants={container}
         // initial="visible"
         // animate="visible"
         // whileInView={

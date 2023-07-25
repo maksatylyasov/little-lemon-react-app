@@ -11,6 +11,8 @@ import image3 from "../assets/red-velvet-cheesecake-wooden-table-cafe.jpg";
 import image4 from "../assets/close-up-shot-homemade-salted-caramel-cream-brownie-toffee.jpg";
 import image5 from "../assets/Coconut-Cream-Pie.jpg";
 import image6 from "../assets/Peanut-Butter-Cupcake.jpg";
+import ProductCard from "./ProductCard";
+import ItemCard from "./ItemCard";
 
 const products = [
   {
@@ -41,12 +43,12 @@ const products = [
 
 const Specials = () => {
   return (
-    <div>
+    <motion.div className="highlight">
       <div className="Specials-header">
         <h2 className="main-text-title">Specials</h2>
         <button className="Button">Online Menu</button>
       </div>
-      <div className="card-container">
+      {/* <div className="card-container">
         {products.map((product) => (
           <motion.div whileHover={{ scale: 1.05 }} className="card-specials">
             <img src={product.image} alt="cardimage1" />
@@ -57,45 +59,16 @@ const Specials = () => {
             <a className="special-description" href="">
               Order a Delivery
             </a>
-            <div>
-              {/* <img scr={FastDeliveryImage} alt="fast delivery icon" /> */}
-            </div>
           </motion.div>
         ))}
-        {/* <div className="card-specials">
-          <div className="img-wrap-card">
-            <img src={CardImage2} alt="cardimage1" />
-          </div>
-          <h3 className="special-text-sub1">
-            Bruchetta <span className="price-tag">$5.5</span>
-          </h3>
-          <p className="special-description">
-            Our Bruschetta is made from grilled bread that has been smeared with
-            garlic and seasoned with salt and olive oil.
-          </p>
-          <a className="special-description" href="">
-            Order a Delivery
-          </a>
-        </div>
-        <div className="card-specials">
-          <div className="img-wrap-card">
-            <img src={CardImage3} alt="cardimage1" />
-          </div>
-
-          <h3 className="special-text-sub1">
-            Lemon Dessert <span className="price-tag">$5.5</span>
-          </h3>
-          <p className="special-description">
-            The famous greek salad of crispy lettuce, peppers, olives and our
-            Chicago style feta cheese, garnished with crunchy garlic and
-            rosemary croutons.
-          </p>
-          <a className="special-description" href="">
-            Order a Delivery
-          </a>
-        </div> */}
-      </div>
-    </div>
+      </div> */}
+      <motion.div className="card-container">
+        {products.map((product) => (
+          // <ProductCard product={product} />
+          <ItemCard product={product} />
+        ))}
+      </motion.div>
+    </motion.div>
   );
 };
 export default Specials;

@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 
 import Box from "@mui/material/Box";
 
-const ShoppingCartItemsPopup = () => {
+const ShoppingCartItemsPopup = (props) => {
   const basketItems = useSelector((state) => state.basketItems);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,14 +23,14 @@ const ShoppingCartItemsPopup = () => {
   const open = Boolean(anchorEl);
   return (
     <>
-      <div>
+      <div style={{ display: props.basketQuantity === 0 ? "none" : "" }}>
         <Typography
           aria-owns={open ? "mouse-over-popover" : undefined}
           aria-haspopup="true"
           onMouseEnter={handlePopoverOpen}
           onMouseLeave={handlePopoverClose}
         >
-          X
+          {props.basketQuantity}
         </Typography>
         <Popover
           id="mouse-over-popover"
